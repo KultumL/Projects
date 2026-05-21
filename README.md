@@ -1,10 +1,10 @@
-# 👋 Hi, I'm Kultum
+# Hello, I'm Kultum Lhabaik
 
 Welcome to my project portfolio — a collection of work spanning full-stack development, data science, and applied machine learning. Each project below tackles a real-world problem with a different tech stack and approach.
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
 ### [DueAble — Smart Assignment Tracker](./DueAble)
 
@@ -40,7 +40,7 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 
 ---
 
-## 🗂️ Other Projects in This Repo
+## Other Projects in This Repo
 
 | Project | Description |
 |---------|-------------|
@@ -51,7 +51,7 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 
 ---
 
-## 🛠️ Languages & Tools
+## Languages & Tools
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
@@ -68,7 +68,7 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 
 ---
 
-## 📬 Get in Touch
+## Get in Touch
 
 Feel free to explore the projects and reach out if you'd like to connect or collaborate.
 
