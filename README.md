@@ -72,6 +72,5 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 
 Feel free to explore the projects and reach out if you'd like to connect or collaborate.
 
-<!-- Add your links below -->
-<!-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINK) -->
-<!-- [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your@email.com) -->
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/kultum2026/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:Klhabaik@email.com) 
