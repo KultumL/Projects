@@ -14,7 +14,8 @@ DueAble is a full-stack assignment tracker that parses syllabi (PDF, image, or p
 
 **Stack:** React Native · Expo · TypeScript · FastAPI · Python · Tesseract OCR · Google Gemini API · Supabase (Postgres) · Render · Netlify
 
-🔗 [Live Demo](https://pixelate-nkkto.netlify.app/login)
+🔗 [Live Demo](https://www.youtube.com/watch?v=zKdHSpMpHvE) 
+🔗 [Web Application](https://pixelate-nkkto.netlify.app/login)
 
 ---
 
