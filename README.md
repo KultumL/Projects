@@ -14,7 +14,8 @@ DueAble is a full-stack assignment tracker that parses syllabi (PDF, image, or p
 
 **Stack:** React Native · Expo · TypeScript · FastAPI · Python · Tesseract OCR · Google Gemini API · Supabase (Postgres) · Render · Netlify
 
-🔗 [Live Demo](https://pixelate-nkkto.netlify.app/login)
+🔗 [Live Demo](https://www.youtube.com/watch?v=zKdHSpMpHvE) 
+🔗 [Web Application](https://pixelate-nkkto.netlify.app/login)
 
 ---
 
@@ -72,6 +73,5 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 
 Feel free to explore the projects and reach out if you'd like to connect or collaborate.
 
-<!-- Add your links below -->
-<!-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINK) -->
-<!-- [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your@email.com) -->
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/kultum2026/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:Klhabaik@email.com) 
