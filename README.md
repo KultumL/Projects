@@ -6,6 +6,18 @@ Welcome to my project portfolio — a collection of work spanning full-stack dev
 
 ## Featured Projects
 
+### [CompanyInsider — AI Company Research Platform](./CompanyInsider)
+
+> Analyst-grade company research, for everyone.
+
+CompanyInsider turns SEC filings and live market data into clear, source-grounded insights about public companies. Its standout feature is an **agentic AI analyst** built on Google Gemini function calling: the model autonomously chooses its own tools, running **semantic RAG** over a company's annual report (sentence-transformers embeddings with cosine-similarity retrieval) alongside live price, financials, and news lookups, then tags every fact with its source. Beyond chat, it generates web-grounded briefings, competitor analysis, and investment theses, and ships with a configurable Trend Tracker alerts engine, user watchlists, and authentication via Supabase row-level security.
+
+**Stack:** React · Vite · Tailwind CSS · FastAPI · Python · Google Gemini API · sentence-transformers · yfinance · SEC EDGAR · Supabase · Vercel · Hugging Face
+
+🔗 [Live Demo](https://companyinsider-six.vercel.app)
+
+---
+
 ### [DueAble — Smart Assignment Tracker](./DueAble)
 
 > Upload a syllabus. Get a planner. Never miss a due date.
