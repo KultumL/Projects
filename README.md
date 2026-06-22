@@ -14,7 +14,7 @@ CompanyInsider turns SEC filings and live market data into clear, source-grounde
 
 **Stack:** React · Vite · Tailwind CSS · FastAPI · Python · Google Gemini API · sentence-transformers · yfinance · SEC EDGAR · Supabase · Vercel · Hugging Face
 
-🔗 [Live Demo](https://companyinsider-six.vercel.app)
+🔗 [Web Application](https://companyinsider-six.vercel.app)
 
 ---
 
