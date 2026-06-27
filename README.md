@@ -18,6 +18,18 @@ CompanyInsider turns SEC filings and live market data into clear, source-grounde
 
 ---
 
+### [MedTrace — Medication & Symptom Tracker with AI Summaries](./MedTrace)
+
+> Organize and communicate health information — never diagnose.
+
+MedTrace is a full-stack medication and symptom tracker with a caregiver mode and an AI summarization layer that stays deliberately in a *summarizing*, never *advising*, role. Adding a medication pulls live purpose, warnings, and side effects from the **OpenFDA** drug label API. Its AI layer is built on a careful boundary: transparent, code-owned rules decide what trends are notable (rising pain, low mood, missed-dose clusters), and **Google Gemini** only phrases the already-detected findings — never diagnosing or advising. A **retrieval-augmented (RAG)** layer grounds summaries in the patient's own FDA drug facts via semantic vector search (**pgvector** + Gemini embeddings, cosine distance). Rounding it out: a consent-based caregiver authorization model with full audit attribution, automated missed-dose email alerts via Resend, and downloadable PDF health reports. Deployed across three tiers.
+
+**Stack:** Java 25 · Spring Boot · Spring Security + JWT · PostgreSQL + pgvector · React Native · Expo · TypeScript · Google Gemini API · OpenFDA · Resend · Docker · Supabase · Render · Vercel
+
+🔗 [Web Application](https://medtrace-red.vercel.app) 
+
+---
+
 ### [DueAble — Smart Assignment Tracker](./DueAble)
 
 > Upload a syllabus. Get a planner. Never miss a due date.
@@ -67,12 +79,14 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 ## Languages & Tools
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![R](https://img.shields.io/badge/R-276DC3?style=flat-square&logo=r&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Plotly Dash](https://img.shields.io/badge/Plotly_Dash-3F4F75?style=flat-square&logo=plotly&logoColor=white)
@@ -86,4 +100,4 @@ An interactive choropleth dashboard that visualizes nurse practitioner availabil
 Feel free to explore the projects and reach out if you'd like to connect or collaborate.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/kultum2026/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:Klhabaik@email.com) 
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:Klhabaik@gmail.com)
