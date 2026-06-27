@@ -97,7 +97,8 @@ public class MedicationService {
         }
 
         if (nameChanged) {
-            logChange(user, saved.getName(), MedicationChange.ChangeType.SWITCHED,)
+            logChange(user, saved.getName(), MedicationChange.ChangeType.SWITCHED,
+                    "Medication switched to " + saved.getName());
         } else if (dosageChanged) {
             logChange(user, saved.getName(), MedicationChange.ChangeType.DOSAGE_CHANGED,
                     "Dosage changed to " + saved.getDosage());
