@@ -75,7 +75,8 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "http://localhost:8081",
                 "http://localhost:19006",
-                "http://192.168.1.220:8081"
+                "http://192.168.1.220:8081",
+                "https://medtrace-red.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
