@@ -9,6 +9,7 @@ import backend.repository.MedicationRepository;
 import backend.repository.MedicationChangeRepository;
 import lombok.RequiredArgsConstructor;
 import backend.dto.MedicationChangeResponse;
+import backend.service.DrugEmbeddingService;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class MedicationService {
     private final OpenFdaService openFdaService;
     private final MedicationChangeRepository medicationChangeRepository;
     private final CareLinkService careLinkService;
+    private final DrugEmbeddingService drugEmbeddingService;
     
     public MedicationResponse addMedication(MedicationRequest request, User user) {
         OpenFdaService.DrugInfo drugInfo = openFdaService.lookup(request.name());
@@ -40,6 +42,7 @@ public class MedicationService {
 
         Medication saved = medicationRepository.save(medication);
         logChange(user, saved.getName(), MedicationChange.ChangeType.ADDED, "Medication added");
+        embedFacts(saved);
         return MedicationResponse.from(saved);
     }
 
@@ -90,8 +93,11 @@ public class MedicationService {
         Medication saved = medicationRepository.save(medication);
 
         if (nameChanged) {
-            logChange(user, saved.getName(), MedicationChange.ChangeType.SWITCHED,
-                    "Medication switched to " + saved.getName());
+            embedFacts(saved);
+        }
+
+        if (nameChanged) {
+            logChange(user, saved.getName(), MedicationChange.ChangeType.SWITCHED,)
         } else if (dosageChanged) {
             logChange(user, saved.getName(), MedicationChange.ChangeType.DOSAGE_CHANGED,
                     "Dosage changed to " + saved.getDosage());
@@ -115,5 +121,34 @@ public class MedicationService {
                 .details(details)
                 .build();
         medicationChangeRepository.save(change);
+    }
+    // Best-effort embedding for RAG. The medication and its facts are the
+    // primary data; the embedding is an enhancement, so a Gemini failure here
+    // must never fail the add/update. We only embed when OpenFDA actually
+    // returned fact text — an empty-fact medication has nothing to index.
+    private void embedFacts(Medication med) {
+        String content = buildFactText(med);
+        if (content.isBlank()) return;  // no facts -> nothing to embed
+        try {
+            drugEmbeddingService.embedAndStore(med.getId(), content);
+        } catch (Exception e) {
+            System.err.println("Drug embedding failed for medication "
+                    + med.getId() + " (" + med.getName() + "): " + e.getMessage());
+        }
+    }
+
+    // Combine the OpenFDA fact fields into one document for embedding.
+    private String buildFactText(Medication med) {
+        StringBuilder sb = new StringBuilder();
+        if (med.getPurpose() != null && !med.getPurpose().isBlank()) {
+            sb.append("Purpose: ").append(med.getPurpose()).append("\n");
+        }
+        if (med.getWarnings() != null && !med.getWarnings().isBlank()) {
+            sb.append("Warnings: ").append(med.getWarnings()).append("\n");
+        }
+        if (med.getSideEffects() != null && !med.getSideEffects().isBlank()) {
+            sb.append("Side effects: ").append(med.getSideEffects()).append("\n");
+        }
+        return sb.toString().trim();
     }
 }

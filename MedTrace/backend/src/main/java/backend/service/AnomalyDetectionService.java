@@ -6,6 +6,9 @@ import backend.model.User;
 import backend.repository.DailyCheckInRepository;
 import backend.dto.DoseStatusResponse;
 import backend.model.DoseStatus;
+import backend.model.CareLink;
+import backend.model.CareLinkStatus;
+import backend.repository.CareLinkRepository;
 
 import org.springframework.stereotype.Service;
 
@@ -31,13 +34,19 @@ public class AnomalyDetectionService {
     private final DailyCheckInRepository checkInRepository;
     private final GeminiService geminiService;
     private final DoseLogService doseLogService;
+    private final CareLinkRepository careLinkRepository;
+    private final ResendService resendService;
 
     public AnomalyDetectionService(DailyCheckInRepository checkInRepository,
                                    GeminiService geminiService,
-                                   DoseLogService doseLogService) {
+                                   DoseLogService doseLogService,
+                                   CareLinkRepository careLinkRepository,
+                                   ResendService resendService) {
         this.checkInRepository = checkInRepository;
         this.geminiService = geminiService;
         this.doseLogService = doseLogService;
+        this.careLinkRepository = careLinkRepository;
+        this.resendService = resendService;
     }
 
     public List<Anomaly> detect(User user) {
@@ -203,4 +212,31 @@ public class AnomalyDetectionService {
             ));
         }
     }
+    public int alertCaregiversIfMissedDoseCluster(User patient) {
+        boolean hasCluster = detect(patient).stream()
+                .anyMatch(a -> "MISSED_DOSE_CLUSTER".equals(a.type()));
+        if (!hasCluster) return 0;
+
+        List<CareLink> links = careLinkRepository.findByPatient(patient);
+        int sent = 0;
+        for (CareLink link : links) {
+            if (link.getStatus() != CareLinkStatus.ACTIVE) continue;
+            User caregiver = link.getCaregiver();
+
+            String subject = "MedTrace: a check-in note about " + patient.getName();
+            String body = "Hello " + caregiver.getName() + ",\n\n"
+                    + "This is an automated note from MedTrace. Over the recent period, "
+                    + patient.getName() + " has a number of scheduled medication doses "
+                    + "logged as missed.\n\n"
+                    + "This is a simple observation from their own dose records, not "
+                    + "medical advice. You may want to check in with them.\n\n"
+                    + "- MedTrace";
+
+            if (resendService.sendEmail(caregiver.getEmail(), subject, body)) {
+                sent++;
+            }
+        }
+        return sent;
+    }
+    
 }

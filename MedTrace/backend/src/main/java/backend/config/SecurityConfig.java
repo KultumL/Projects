@@ -74,7 +74,8 @@ public class SecurityConfig {
         // (e.g. http://192.168.x.x:8081) when testing on a physical phone.
         config.setAllowedOrigins(List.of(
                 "http://localhost:8081",
-                "http://localhost:19006"
+                "http://localhost:19006",
+                "http://192.168.1.220:8081"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
